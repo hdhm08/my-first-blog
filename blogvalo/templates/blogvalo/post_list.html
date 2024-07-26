@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompXela - Laptops y Equipo Gaming</title>
+    <title>CompuXela - Laptops y Equipo Gaming</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -39,6 +39,12 @@
             background-color: #5e79cf;
             border-color: #5d7bde;
         }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -50,22 +56,32 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#laptops">Laptops</a>
+                    <a class="nav-link" href="#" onclick="showSection('welcome')">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#gaming">Equipo Gaming</a>
+                    <a class="nav-link" href="#" onclick="showSection('laptops')">Laptops</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showSection('gaming')">Equipo Gaming</a>
                 </li>
             </ul>
         </div>
     </nav>
     <div class="container">
-        <h1 class="text-center my-4">¡Bienvenidos a CompuXela!</h1>
-        <div class="menu-section" id="laptops">
+        <div id="welcome" class="section active text-center">
+            <h1 class="my-4">¡Bienvenidos a CompuXela!</h1>
+            <img src="C:\Users\hugoh\Documents\Progra 5cb\Camilongo\Imagenes\departamento-laptops-tienda-tecnologia-compra-laptop_245974-2709.avif">
+            <p>Explora nuestras categorías de productos:</p>
+            <button class="btn btn-primary" onclick="showSection('laptops')"><i class="fas fa-laptop"></i> Ver Laptops</button>
+            <button class="btn btn-success" onclick="showSection('gaming')"><i class="fas fa-gamepad"></i> Ver Equipo Gaming</button>
+        </div>
+
+        <div id="laptops" class="section">
             <h2 class="text-center">Laptops</h2>
             <div class="row">
                 <div class="col-md-4">
                     <div class="menu-item card shadow-sm">
-                        <img src="C:\Users\hugoh\Downloads\images (1).png" alt="Laptop 1">
+                        <img src="https://via.placeholder.com/300x200.png?text=Laptop+1" alt="Laptop 1">
                         <div class="card-body">
                             <h5 class="card-title">Laptop Modelo 1 - Q6000.00</h5>
                             <p class="card-text">Laptop con procesador Intel i5 y 8GB RAM.</p>
@@ -95,7 +111,8 @@
                 </div>
             </div>
         </div>
-        <div class="menu-section" id="gaming">
+
+        <div id="gaming" class="section">
             <h2 class="text-center">Equipo Gaming</h2>
             <div class="row">
                 <div class="col-md-4">
@@ -130,6 +147,7 @@
                 </div>
             </div>
         </div>
+
         <div class="mt-4 text-center">
             <button class="btn btn-success btn-lg" onclick="alert('¡Gracias por tu compra!')"><i class="fas fa-shopping-cart"></i> Comprar</button>
         </div>
@@ -138,5 +156,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
